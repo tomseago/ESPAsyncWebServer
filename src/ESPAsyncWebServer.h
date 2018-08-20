@@ -418,6 +418,9 @@ class AsyncWebServer {
     void onRequestBody(ArBodyHandlerFunction fn); //handle posts with plain body content (JSON often transmitted this way as a request)
 
     void reset(); //remove all writers and handlers, with onNotFound/onFileUpload/onRequestBody 
+
+    uint8_t status() { return _server.status(); }
+    void end() { _server.end(); }
   
     void _handleDisconnect(AsyncWebServerRequest *request);
     void _attachHandler(AsyncWebServerRequest *request);
